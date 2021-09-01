@@ -1,6 +1,10 @@
+
 #!/usr/bin/with-contenv bash
 
-# 启动定时任务,默认一小时执行一次
+# 第一次启动全量扫描
+s6-setuidgid subfinder /media \
+	-c /config/subfinder.json
+
 # 启动subfinder查找字幕
 s6-setuidgid abc \
 	looking4video
