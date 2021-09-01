@@ -2,7 +2,7 @@
 
 # Docker SubFinder 自动刮削字幕器 - 文件监听版
 
-![](https://img.shields.io/docker/pulls/reprover/subfinder) ![GitHub last commit](https://img.shields.io/github/last-commit/reprover/docker-subfinder-notify) ![GitHub stars](https://img.shields.io/github/stars/reprover/docker-subfinder-notify) ![GitHub forks](https://img.shields.io/github/forks/reprover/docker-subfinder-notify)
+![](https://img.shields.io/docker/pulls/reprover/subfinder) ![GitHub last commit](https://img.shields.io/github/last-commit/rxrw/docker-subfinder-notify) ![GitHub stars](https://img.shields.io/github/stars/rxrw/docker-subfinder-notify) ![GitHub forks](https://img.shields.io/github/forks/rxrw/docker-subfinder-notify)
 
 Docker Hub：https://hub.docker.com/r/reprover/subfinder
 
