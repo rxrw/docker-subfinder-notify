@@ -8,9 +8,9 @@ deal(){
 
 path=/media
 exclude=$EXCLUDE
-if [ -z $exclude ]; then exclude="esflkbhrejsvjui284uwhri3sd8uhke3ea3"; fi
-echo "排除条件："$exclude"\n"
-inotifywait -mrq --exclude $exclude --timefmt '%Y-%m-%d %H:%M' --format '%T %w%f %e' -e modify,create $path |
+if [ -z $exclude ]; then exclude="None(Use this string to avoid parameter error)"; fi
+echo "排除监控条件："$exclude
+inotifywait -mrq --exclude "$exclude" --timefmt '%Y-%m-%d %H:%M' --format '%T %w%f %e' -e modify,create $path |
   while read events; do
     deal $events
   done

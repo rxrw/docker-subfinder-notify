@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bash
 
-if [ $FULLSCAN = true ]; then
+if [ $FULLSCAN ]; then
 	echo "第一次启动，全量扫描"
 	# 第一次启动全量扫描
 	s6-setuidgid abc subfinder /media \
