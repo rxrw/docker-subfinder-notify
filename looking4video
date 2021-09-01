@@ -10,7 +10,7 @@ path=/media
 exclude=$EXCLUDE
 if [ -z $exclude ]; then exclude="None(Use this string to avoid parameter error)"; fi
 echo "排除监控条件："$exclude
-inotifywait -mr --exclude "$exclude" --timefmt '%Y-%m-%d %H:%M' --format '%T "%w%f" %e' -e modify,create $path |
+inotifywait -mr --exclude "$exclude" --timefmt '%Y-%m-%d %H:%M' --format "%T '%w%f' %e" -e modify,create $path |
   while read events; do
     deal $events
   done
