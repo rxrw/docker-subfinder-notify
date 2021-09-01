@@ -36,6 +36,8 @@ RUN useradd -u 1000 -U -d /config -s /bin/false abc \
 
 ADD looking4video /usr/bin/
 
+RUN chmod 755 /usr/bin/looking4video
+
 ADD config /config
 
 # volumes
