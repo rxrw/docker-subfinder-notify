@@ -36,6 +36,7 @@ jobs:
       - name: Push
         if: steps.set-version.outputs.status == 'success'
         run: |
+          git add ./ReleaseTag
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -am "Update ReleaseTag ${{ steps.set-version.outputs.version }}"
