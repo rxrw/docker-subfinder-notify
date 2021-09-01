@@ -18,6 +18,10 @@ https://github.com/SuperNG6/docker-subfinder
 
 本来是觉得改动会很大，没想到其实就是一个脚本文件～
 
+## 效果图
+![image](https://user-images.githubusercontent.com/9566402/131652996-7584c10a-ab98-47f7-98b2-7ca61fc0adce.png)
+
+
 ## 使用方法
 
 docker run reprover/subfinder:latest
