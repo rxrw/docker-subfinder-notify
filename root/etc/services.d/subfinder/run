@@ -1,8 +1,11 @@
 #!/usr/bin/with-contenv bash
 
-# 第一次启动全量扫描
-s6-setuidgid abc subfinder /media \
-	-c /config/subfinder.json
+if [ $FULLSCAN = true ]; then
+	echo "第一次启动，全量扫描"
+	# 第一次启动全量扫描
+	s6-setuidgid abc subfinder /media \
+		-c /config/subfinder.json
+fi
 
 # 启动subfinder查找字幕
 s6-setuidgid abc \
