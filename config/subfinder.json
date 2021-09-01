@@ -1,0 +1,17 @@
+{
+  "languages": ["zh_en","zh", "en", "zh_chs"],
+  "exts": ["ass", "srt"],
+  "method": ["shooter", "zimuku"],
+  "video_exts": [".mp4", ".mkv", ".iso", ".rmvb", ".avi", ".flv", ".m2ts", ".ts"],
+  "exclude": [],
+  "api_urls": {
+    "zimuku": "https://zmk.pw/search",
+    "zimuzu": "http://www.zmz2019.com/search",
+    "zimuzu_api_subtitle_download": "/api/v1/static/subtitle/detail",
+    "subhd": "https://subhd.tv/search",
+    "subhd_api_subtitle_download": "/ajax/down_ajax",
+    "subhd_api_subtitle_preview": "/ajax/file_ajax"
+  },
+  "ignore": true,
+  "no_order_marker": true
+}

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+deal(){
+  # 判断格式然后使用subfinder处理变动的文件
+  echo $1" "$2" "$4" "$3
+  subfinder $3 -c /config/subfinder.json
+}
+
+path=/media
+exclude=$EXCLUDE
+if [ -z $exclude ]; then exclude="esflkbhrejsvjui284uwhri3sd8uhke3ea3"; fi
+echo $exclude
+inotifywait -mrq --exclude $exclude --timefmt '%Y-%m-%d %H:%M' --format '%T %w%f %e' -e modify,delete,create $path |
+  while read events; do
+    deal $events
+  done
