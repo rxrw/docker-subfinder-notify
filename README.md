@@ -1,26 +1,27 @@
-
-
 # Docker SubFinder 自动刮削字幕器 - 文件监听版
 
-![](https://img.shields.io/docker/pulls/reprover/subfinder) ![GitHub last commit](https://img.shields.io/github/last-commit/rxrw/docker-subfinder-notify) ![GitHub stars](https://img.shields.io/github/stars/rxrw/docker-subfinder-notify) ![GitHub forks](https://img.shields.io/github/forks/rxrw/docker-subfinder-notify)
+![image](https://img.shields.io/docker/pulls/reprover/subfinder) ![GitHub last commit](https://img.shields.io/github/last-commit/rxrw/docker-subfinder-notify) ![GitHub stars](https://img.shields.io/github/stars/rxrw/docker-subfinder-notify) ![GitHub forks](https://img.shields.io/github/forks/rxrw/docker-subfinder-notify)
 
-Docker Hub：https://hub.docker.com/r/reprover/subfinder
+Docker Hub：<https://hub.docker.com/r/reprover/subfinder>
 
-Github: https://github.com/rxrw/docker-subfinder-notify
+Github: <https://github.com/rxrw/docker-subfinder-notify>
 
 Inspired By:
 
-https://github.com/ausaki/subfinder
+<https://github.com/ausaki/subfinder>
 
-https://github.com/SuperNG6/docker-subfinder
+<https://github.com/SuperNG6/docker-subfinder>
 
 前天在 github 上偶然发现 [SuperNG6/docker-subfinder](https://github.com/SuperNG6/docker-subfinder) Docker 版本的字幕搜刮器，十分好用，美中不足的就是不支持实时监听文件改动。而我盘上几千集的柯南让我有点头疼，于是在此基础上修改了一版。
 
-本来是觉得改动会很大，没想到其实就是一个脚本文件～
+## 特点
+
++ 根据文件变动选择是否下载字幕
++ 根据FFMpeg分析视频文件，如果存在内嵌中文字幕，就不会去下载字幕了
 
 ## 效果图
-![image](https://user-images.githubusercontent.com/9566402/131652996-7584c10a-ab98-47f7-98b2-7ca61fc0adce.png)
 
+![image](https://user-images.githubusercontent.com/9566402/131652996-7584c10a-ab98-47f7-98b2-7ca61fc0adce.png)
 
 ## 使用方法
 
@@ -61,6 +62,10 @@ Docker 镜像中内置了当前最新可用的配置文件，忽略已存在的�
 | TZ | 时区 | Asia/Shanghai |
 | PUID | 用户权限 | 1027 |
 | PGID | 用户组权限 | 100 |
+| INTERNAL_SUB_SKIP | 内嵌字幕跳过语言。如果内嵌字幕中存在此语言的字幕，就不会下载。如果不想使用此功能，将值设置为乱码即可 | chi |
+
+> chi 是中文，无论繁体还是简体。
+> eng 是英文，好像都是语言的前三个字母小写吧
 
 ## docker-compose.yml
 
@@ -88,7 +93,3 @@ services:
 1. 初次启动时如果视频库结构比较复杂，会有较长时间进行初次索引，这是 `inotifywait` 使然
 2. 目前的逻辑是所有的文件变动都会调用 `subfinder`，由 `subfinder` 的过滤器负责过滤
 3. 本项目也会根据主项目的新版本发布自动编译新的镜像。
-
-## TODO
-
-[] 通过ffmpeg分析视频内嵌字幕，存在的话就不下载了

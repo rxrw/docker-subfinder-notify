@@ -1,14 +1,17 @@
 #!/bin/bash
 
 deal(){
-  # 判断格式然后使用subfinder处理变动的文件
-  subfinder "$1" -c /config/subfinder.json
+  ffprobe -show_streams -select_streams s -of json -v quiet "$1" | python3 -c "import json,sys;[exit(0) for stream in json.load(sys.stdin)['streams'] if stream['tags']['language'] == '$INTERNAL_SUB_SKIP'];exit(-1)"
+
+  # 不存在内置中文字幕的时候才会去查找字幕
+  if [ $? -eq 1 ]; then subfinder "$1" -c /config/subfinder.json; fi
+
 }
 
 path=/media
 exclude=$EXCLUDE
 if [ -z $exclude ]; then exclude="None(Use this string to avoid parameter error)"; fi
-echo "排除监控条件："$exclude
+echo "排除监控条件: "$exclude
 echo "开始监听"
 inotifywait -mr --exclude "$exclude" --timefmt '%Y-%m-%d %H:%M' --format '%w%f' -e create,modify $path |
   while read events; do
