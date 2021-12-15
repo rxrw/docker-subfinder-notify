@@ -1,7 +1,7 @@
 #!/bin/bash
 
 deal(){
-  ffprobe -show_streams -select_streams s -of json -v quiet "$1" | python3 -c "import json,sys;[exit(0) for stream in json.load(sys.stdin)['streams'] if stream['tags']['language'] == '$INTERNAL_SUB_SKIP'];exit(-1)"
+  ffprobe -show_streams -select_streams s -of json -v quiet "$1" | python3 -c "import json,sys;[exit(0) for stream in json.load(sys.stdin)['streams'] if stream['tags']['language'] == '$INTERNAL_SUB_SKIP'];exit(1)"
 
   # 不存在内置中文字幕的时候才会去查找字幕
   if [ $? -eq 1 ]; then subfinder "$1" -c /config/subfinder.json; fi
