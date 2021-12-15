@@ -15,6 +15,7 @@ LABEL maintainer="Jens Lee"
 ENV TZ=Asia/Shanghai PUID=1027 PGID=100
 
 ARG $EXCLUDE
+ARG $INTERNAL_SUB_SKIP=chi
 
 # copy files
 COPY root/ /
@@ -22,7 +23,7 @@ COPY --from=builder /downloads/s6-overlay/  /
 
 # install subfinder
 RUN apt -y update
-RUN apt -y install unrar-free inotify-tools
+RUN apt -y install unrar-free inotify-tools ffmpeg
 RUN pip install subfinder
 RUN useradd -u 1000 -U -d /config -s /bin/false abc \
 &&  usermod -G users abc  \
