@@ -15,7 +15,7 @@ LABEL maintainer="Jens Lee"
 ENV TZ=Asia/Shanghai PUID=1027 PGID=100
 
 ARG $EXCLUDE
-ARG $INTERNAL_SUB_SKIP=chi
+ARG $INTERNAL_SUB_SKIP
 
 # copy files
 COPY root/ /
