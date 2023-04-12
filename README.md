@@ -1,8 +1,8 @@
 # Docker SubFinder 自动刮削字幕器 - 文件监听版
 
-![image](https://img.shields.io/docker/pulls/reprover/subfinder) ![GitHub last commit](https://img.shields.io/github/last-commit/rxrw/docker-subfinder-notify) ![GitHub stars](https://img.shields.io/github/stars/rxrw/docker-subfinder-notify) ![GitHub forks](https://img.shields.io/github/forks/rxrw/docker-subfinder-notify)
+![image](https://img.shields.io/docker/pulls/freeznet/subfinder) ![GitHub last commit](https://img.shields.io/github/last-commit/rxrw/docker-subfinder-notify) ![GitHub stars](https://img.shields.io/github/stars/rxrw/docker-subfinder-notify) ![GitHub forks](https://img.shields.io/github/forks/rxrw/docker-subfinder-notify)
 
-Docker Hub：<https://hub.docker.com/r/reprover/subfinder>
+Docker Hub：<https://hub.docker.com/r/freeznet/subfinder>
 
 Github: <https://github.com/rxrw/docker-subfinder-notify>
 
@@ -25,7 +25,7 @@ Inspired By:
 
 ## 使用方法
 
-docker run reprover/subfinder:latest
+docker run freeznet/subfinder:latest
 
 ~
 
@@ -74,7 +74,7 @@ version: '3'
 
 services:
   subfinder:
-    image: reprover/subfinder
+    image: freeznet/subfinder
     privileged: True
     restart: unless-stopped
     volumes:

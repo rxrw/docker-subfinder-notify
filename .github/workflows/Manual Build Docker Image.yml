@@ -42,5 +42,5 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            reprover/subfinder:${{ steps.set-version.outputs.version }}
-            reprover/subfinder:latest
+            freeznet/subfinder:${{ steps.set-version.outputs.version }}
+            freeznet/subfinder:latest
